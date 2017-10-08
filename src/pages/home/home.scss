@@ -1,3 +1,63 @@
-page-home {
+@import '../../theme/variables.scss';
 
+page-home {
+  h6 {
+    margin-left: 15px;
+    color: white;
+  }
+
+  .searchbar-md .searchbar-input {
+    border-radius: 0px;
+  }
+
+  .item-md ion-thumbnail {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .song-title {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: black;
+  }
+
+  .album-title {
+    margin-top: 0px;
+    color: gray;
+    font-size: 11px;
+  }
+
+  .heart-count {
+    margin-top: 10px;
+    padding-left: 17px;
+    font-size: 25px;
+    color: white;
+    position: relative;
+  }
+
+  .like-heart {
+    padding-left: 2px;
+    font-size: 25px;
+    color: #d0e692;
+  }
+
+  .like-change {
+    color: #74b0c9;
+  }
+
+  .count-likes {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 0 1em;
+  }
+
+  .alert {
+    display: inline-block;
+    top: 80px;
+    right: 23px;
+    font-weight: bold;
+    position: absolute;
+  }
 }

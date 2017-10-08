@@ -1,0 +1,6 @@
+<!-- el ngModel inserta el valor del input text, al canviar el input, se activa la función getArtist, para poder
+leer la información de la Api -->
+<ion-searchbar [(ngModel)]="searchQuery" (change)="getArtist($event)"></ion-searchbar>
+
+
+

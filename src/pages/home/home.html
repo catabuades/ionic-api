@@ -1,17 +1,32 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <ion-toolbar color="corporative">
+    <h6>SlashMobility</h6>
+    <ion-row>
+      <div class='count-likes'>
+        <!-- el padre (home/debería ser songs) esta preparado para escuchar el evento que emite el hijo, la emisión del componente 'searcher.ts' -->
+        <search-input (onArtistSearch)="getArtistResult($event)"></search-input>
+        <div>
+          <ion-icon class='heart-count' name='md-heart' col-2></ion-icon>
+          <span class='alert'>{{count}}</span>
+        </div>
+      </div>
+    </ion-row>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <!-- se crea la condición para que si se ha encontrado algun resultado se genere la lista impresa -->
+  <ion-list *ngIf="results">
+    <!-- ngFor, para que cada vez que encuentra una canción se cree una fila nueva con toda la información requerida -->
+    <ion-item *ngFor="let result of results">
+      <ion-thumbnail item-start>
+        <img style="width: 40px; height: 40px;" src={{result.artworkUrl30}}>
+      </ion-thumbnail>
+      <p class='song-title'>{{result.trackName}}</p>
+      <p class='album-title'>{{result.collectionCensoredName}}</p>
+      <button ion-button clear item-end class='like'>
+          <ion-icon class='like-heart' name='md-heart' (click)="like($event)"></ion-icon>
+        </button>
+    </ion-item>
+  </ion-list>
 </ion-content>
